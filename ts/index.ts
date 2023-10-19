@@ -12,3 +12,19 @@ const add = (a:number, b:number):number =>{
     return a + b;
 }
 
+/* INTRODUCING INTERFECES */
+
+const post = {
+    title: 'The Sky',
+    daysOld: 10,
+    published: true,
+}
+interface PostGatekeeper {
+    title: string;
+    daysOld: number;
+    published: boolean;
+}
+
+const printPrint = (postToPrint: PostGatekeeper) => {
+    return  `${postToPrint.title} (${postToPrint.daysOld} days old`
+}
