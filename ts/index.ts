@@ -123,3 +123,32 @@ stringHolder.value = 'A String'
 
 const numberHolder = new ValueHolder<number>();
 numberHolder.value;
+
+/* FUNCTION GENERICS: the same thing we can do with a generic function, instead of: */
+
+class valueHolder<T> {
+    value: T;
+}
+
+const numberWrapper = (value: number): number[] => {
+    return [value];
+};
+
+const stringWrapper = (value: string): string[] => {
+    return [value];
+};
+
+const booleanWrapper = (value: boolean): boolean[] => {
+    return [value];
+};
+
+/* THERE'S A GENERIC FX in action! */
+const valueWrapper = <T>(value: T): T[] => {
+    return [value];
+};
+// first example ...
+valueWrapper<number>(10);
+// second example ...
+valueWrapper<boolean>(true);
+// it works also in this way ...
+const value = valueWrapper(10);
