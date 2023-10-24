@@ -90,3 +90,7 @@ class Moto {
 new Moto();
 
 /* MODULE SYSTEM */
+import {Pullman} from "./Pullman";
+
+const myPullman1 = new Pullman();
+
