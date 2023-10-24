@@ -34,16 +34,30 @@ const printPrint = (postToPrint: PostGatekeeper) => {
 class Car {
     /* EVERY CAR SHOULD HAVE COLOR AND YEAR: */
     /* PROPERTIES :*/
-    color: string;
-    year: number;
+    public color: string;
+    private year: number;
      /* CONSTRUCTOR FX: */
     constructor( color: string, year: number ) {
         /* QUI VENGONO INIZIALIZZATE */
         this.color = color;
         this.year = year;
     }
-    drive() {
+    public drive() {
+        console.log(this.year)
         console.log('Vroom')
+        this.putInGear();
+        this.pressPedal();
+        this.turnWheel()
+    }
+    /* Defines other methods private as we do not want other developer to change the process of driving: */
+    private putInGear() {
+
+    }
+    private pressPedal(){
+
+    }
+    private turnWheel(){
+
     }
 }
 /* COMMAND TO CREATE AN INSTACE OF CAR*/
@@ -52,3 +66,27 @@ const myCar = new Car('red', 2000);
 myCar.drive();
 /* CONSOLE LOG OF THE NEW PROPERTIES: */
 console.log(myCar.color, myCar.year); // 'red' ,2000
+
+/* Public and Private */
+myCar.color;
+myCar.year; // Property private only method can access year property
+myCar.drive();
+myCar.putInGear(); // Property no readable
+
+/* DECORATORS */
+
+const Component = (target: any) => {
+    console.log(target);
+};
+@Component
+class Moto {
+    @Component year: string;
+    @Component
+    drive(@Component speed: number){
+
+    }
+}
+// Component does not get called a second time
+new Moto();
+
+/* MODULE SYSTEM */
