@@ -94,3 +94,32 @@ import {Pullman} from "./Pullman";
 
 const myPullman1 = new Pullman();
 
+/* CLASS GENERICS: the goal is to reduce the number of times you have to write out a unique implementation */
+
+class NumberHolder {
+    value: number;
+}
+class StringHolder {
+    value: string;
+}
+class BooleanHolder {
+    value: boolean;
+}
+
+/* this is = to write each class */
+class ValueHolder<TypeForValueProperty> {
+    value: TypeForValueProperty;
+}
+/* shortcut */
+class ValueHolderNew<T>{
+    value: T;
+}
+
+const numberHolder = new NumberHolder();
+numberHolder.value = 10;
+
+const stringHolder = new StringHolder();
+stringHolder.value = 'A String'
+
+const numberHolder = new ValueHolder<number>();
+numberHolder.value;
